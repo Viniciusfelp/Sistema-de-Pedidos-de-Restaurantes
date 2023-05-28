@@ -39,4 +39,8 @@ public class FuncionarioService {
     public Optional<Funcionario> bucarPorId(String cpf) {
         return funcionarioRepository.findById(cpf);
     }
+
+    public void deletar(String cpf) {
+        funcionarioRepository.deleteById(cpf);
+    }
 }

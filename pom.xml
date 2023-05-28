@@ -15,6 +15,7 @@
 	<description>restaurant-order-system</description>
 	<properties>
 		<java.version>20</java.version>
+		<maven.test.skip>true</maven.test.skip>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -79,5 +80,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

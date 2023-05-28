@@ -1,5 +1,6 @@
 package br.com.restaurantordersystem.controllers;
 
+import br.com.restaurantordersystem.models.DetalhamentoPedidoRecord;
 import br.com.restaurantordersystem.models.PedidoRecord;
 import br.com.restaurantordersystem.services.PedidoService;
 import jakarta.validation.Valid;
@@ -19,7 +20,7 @@ public class PedidoController {
     public ResponseEntity criar(@Valid @RequestBody PedidoRecord pedido, UriComponentsBuilder uriBuilder){
         var pedidoCadastrado = pedidoService.criar(pedido.toPedido());
         var uri = uriBuilder.path("/pedido/{id}").buildAndExpand(pedidoCadastrado.getCodigo()).toUri();
-        return ResponseEntity.created(uri).body(pedidoCadastrado);
+        return ResponseEntity.created(uri).body(new DetalhamentoPedidoRecord(pedidoCadastrado));
     }
 
     @GetMapping
@@ -31,7 +32,7 @@ public class PedidoController {
     public ResponseEntity findById(@PathVariable Long codigo) {
         var pedido = pedidoService.findById(codigo);
         if(pedido == null) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(pedido);
+        return ResponseEntity.ok(new DetalhamentoPedidoRecord(pedido));
     }
 
     @PutMapping("/{codigo}")
@@ -39,7 +40,7 @@ public class PedidoController {
         var pedidoAux = pedido.toPedido();
         if(pedidoService.existe(codigo)) return ResponseEntity.notFound().build();
         var pedidoAtualizado = pedidoService.atualizar(codigo, pedidoAux);
-        return ResponseEntity.ok(pedidoAtualizado);
+        return ResponseEntity.ok(new DetalhamentoPedidoRecord(pedidoAtualizado));
     }
 
     @DeleteMapping("/{codigo}")

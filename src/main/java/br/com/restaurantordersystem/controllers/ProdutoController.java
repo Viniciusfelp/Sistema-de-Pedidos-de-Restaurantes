@@ -1,5 +1,6 @@
 package br.com.restaurantordersystem.controllers;
 
+import br.com.restaurantordersystem.models.DetalhamentoProdutoRecord;
 import br.com.restaurantordersystem.models.ProdutoRecord;
 import br.com.restaurantordersystem.services.ProdutoService;
 import jakarta.validation.Valid;
@@ -31,7 +32,7 @@ public class ProdutoController {
     public ResponseEntity findById(@PathVariable Long codigo) {
         var produto = produtoService.buscarPorId(codigo);
         if(produto == null) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(produto);
+        return ResponseEntity.ok(new DetalhamentoProdutoRecord(produto));
     }
 
     @PutMapping("/{codigo}")
