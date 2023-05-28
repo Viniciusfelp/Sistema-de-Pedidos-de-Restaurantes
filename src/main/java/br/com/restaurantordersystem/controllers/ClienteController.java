@@ -2,6 +2,7 @@ package br.com.restaurantordersystem.controllers;
 
 import br.com.restaurantordersystem.models.Cliente;
 import br.com.restaurantordersystem.models.ClienteRecord;
+import br.com.restaurantordersystem.models.DetalhamentoClienteRecord;
 import br.com.restaurantordersystem.services.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class ClienteController {
     public ResponseEntity criarUsuario(@Valid @RequestBody ClienteRecord cliente, UriComponentsBuilder uriBuilder) {
         var usuarioCadastrado = clienteService.criar(cliente.toCliente());
         var uri = uriBuilder.path("/usuario/{id}").buildAndExpand(usuarioCadastrado.getCpf()).toUri();
-        return ResponseEntity.created(uri).body(usuarioCadastrado);
+        return ResponseEntity.created(uri).body(new DetalhamentoClienteRecord(usuarioCadastrado));
     }
 
     @GetMapping
@@ -33,7 +34,7 @@ public class ClienteController {
         var usuarioAux = usuario.toCliente();
         if(clienteService.existe(cpf)) return ResponseEntity.notFound().build();
         var usuarioAtualizado = clienteService.atualizar(usuarioAux);
-        return ResponseEntity.ok(usuarioAtualizado);
+        return ResponseEntity.ok(new DetalhamentoClienteRecord(usuarioAtualizado));
     }
 
     @DeleteMapping("/{cpf}")
@@ -47,6 +48,6 @@ public class ClienteController {
     public ResponseEntity buscarUsuarioPorId(@PathVariable String cpf) {
         var usuario = clienteService.buscarPorId(cpf);
         if(usuario == null) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(usuario);
+        return ResponseEntity.ok(new DetalhamentoClienteRecord(usuario));
     }
 }
