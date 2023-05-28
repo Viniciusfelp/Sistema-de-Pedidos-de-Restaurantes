@@ -1,10 +1,18 @@
 package br.com.restaurantordersystem.models;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+@EqualsAndHashCode(callSuper = true)
 @Entity
+@Data
+@NoArgsConstructor
 public class Cliente extends Usuario{
-    @Id
-    private Long id;
+
+    public Cliente(String cpf, String nome, String email, String senha, Endereco endereco, String telefone) {
+        super(cpf, nome, email, senha, endereco, telefone);
+    }
 }

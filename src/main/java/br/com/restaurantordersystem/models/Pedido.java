@@ -17,7 +17,7 @@ public class Pedido {
     private String codigo;
     @ManyToOne
     @JoinColumn(name = "cpf_cliente")
-    private Cliente usuario;
+    private Cliente cliente;
     @ManyToOne
     @JoinColumn(name = "cpf_funcionario")
     private Funcionario funcionario;

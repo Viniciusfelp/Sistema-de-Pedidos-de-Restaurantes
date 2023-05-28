@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Usuario {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Usuario {
     @Id
     private String cpf;
     private String nome;
