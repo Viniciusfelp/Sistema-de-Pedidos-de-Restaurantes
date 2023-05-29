@@ -1,6 +1,6 @@
 package br.com.restaurantordersystem.repositories;
 
-import br.com.restaurantordersystem.models.User;
+import br.com.restaurantordersystem.models.autenticacao.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 

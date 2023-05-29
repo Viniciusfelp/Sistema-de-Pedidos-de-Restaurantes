@@ -1,4 +1,4 @@
-package br.com.restaurantordersystem.models;
+package br.com.restaurantordersystem.models.autenticacao;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

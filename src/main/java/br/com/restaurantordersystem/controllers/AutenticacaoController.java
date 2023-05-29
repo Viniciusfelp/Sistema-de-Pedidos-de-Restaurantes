@@ -1,6 +1,9 @@
 package br.com.restaurantordersystem.controllers;
 
-import br.com.restaurantordersystem.models.DadosAutenticacao;
+import br.com.restaurantordersystem.infra.security.DadosTokenJWT;
+import br.com.restaurantordersystem.infra.security.TokenService;
+import br.com.restaurantordersystem.models.autenticacao.DadosAutenticacao;
+import br.com.restaurantordersystem.models.autenticacao.User;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +20,15 @@ public class AutenticacaoController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping
     public ResponseEntity login(@Valid @RequestBody DadosAutenticacao dadosAutenticacao) {
-        var token = new UsernamePasswordAuthenticationToken(dadosAutenticacao.login(), dadosAutenticacao.senha());
-        var authentication = authenticationManager.authenticate(token);
-        return ResponseEntity.ok(token);
+        var authenticationToken = new UsernamePasswordAuthenticationToken(dadosAutenticacao.login(), dadosAutenticacao.senha());
+        var authentication = authenticationManager.authenticate(authenticationToken);
+        var token = tokenService.gerarToken((User) authentication.getPrincipal());
+        return ResponseEntity.ok(new DadosTokenJWT(token));
     }
 }
