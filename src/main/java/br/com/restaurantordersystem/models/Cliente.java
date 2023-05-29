@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Cliente extends Pessoa {
 
-    public Cliente(String cpf, String nome, String email, String senha, Endereco endereco, String telefone) {
-        super(cpf, nome, email, senha, endereco, telefone);
+    public Cliente(String cpf, String nome, String email, Endereco endereco, String telefone) {
+        super(cpf, nome, email, endereco, telefone);
     }
 }

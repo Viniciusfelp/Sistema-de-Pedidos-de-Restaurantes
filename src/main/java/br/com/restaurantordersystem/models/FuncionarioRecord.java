@@ -38,6 +38,6 @@ public record FuncionarioRecord (
         String cargo
 ){
     public Funcionario toFuncionario() {
-        return new Funcionario(cpf(), nome(), email(), senha(), endereco(), telefone(), cargo());
+        return new Funcionario(cpf(), nome(), email(), endereco(), telefone(), cargo());
     }
 }

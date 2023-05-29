@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 public class Funcionario extends Pessoa {
     private String cargo;
 
-    public Funcionario(String cpf, String nome, String email, String senha, Endereco endereco, String telefone, String cargo) {
-        super(cpf, nome, email, senha, endereco, telefone);
+    public Funcionario(String cpf, String nome, String email, Endereco endereco, String telefone, String cargo) {
+        super(cpf, nome, email, endereco, telefone);
         this.cargo = cargo;
     }
 }

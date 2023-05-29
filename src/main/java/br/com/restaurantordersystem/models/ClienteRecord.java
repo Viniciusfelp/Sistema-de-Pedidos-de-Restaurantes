@@ -38,6 +38,6 @@ public record ClienteRecord(
         String telefone
 ) {
     public Cliente toCliente() {
-        return new Cliente(cpf(), nome(), email(), senha(), endereco(), telefone());
+        return new Cliente(cpf(), nome(), email(), endereco(), telefone());
     }
 }
