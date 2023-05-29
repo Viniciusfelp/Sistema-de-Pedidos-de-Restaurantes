@@ -2,7 +2,6 @@ package br.com.restaurantordersystem.models;
 
 import jakarta.persistence.Entity;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -11,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class Cliente extends Usuario{
+public class Cliente extends Pessoa {
 
     public Cliente(String cpf, String nome, String email, String senha, Endereco endereco, String telefone) {
         super(cpf, nome, email, senha, endereco, telefone);

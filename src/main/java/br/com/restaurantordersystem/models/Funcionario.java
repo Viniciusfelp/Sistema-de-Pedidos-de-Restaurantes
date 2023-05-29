@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Funcionario extends Usuario{
+public class Funcionario extends Pessoa {
     private String cargo;
 
     public Funcionario(String cpf, String nome, String email, String senha, Endereco endereco, String telefone, String cargo) {
