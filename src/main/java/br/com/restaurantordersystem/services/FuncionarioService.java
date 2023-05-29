@@ -1,6 +1,6 @@
 package br.com.restaurantordersystem.services;
 
-import br.com.restaurantordersystem.models.Funcionario;
+import br.com.restaurantordersystem.models.funcionario.Funcionario;
 import br.com.restaurantordersystem.repositories.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,6 @@ public class FuncionarioService {
             funcionario.get().setCpf(funcionarioAux.getCpf());
             funcionario.get().setNome(funcionarioAux.getNome());
             funcionario.get().setEmail(funcionarioAux.getEmail());
-            funcionario.get().setSenha(funcionarioAux.getSenha());
             funcionario.get().setCargo(funcionarioAux.getCargo());
             return funcionarioRepository.save(funcionario.get());
     }

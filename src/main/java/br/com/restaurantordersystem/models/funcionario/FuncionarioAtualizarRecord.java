@@ -1,4 +1,6 @@
-package br.com.restaurantordersystem.models;
+package br.com.restaurantordersystem.models.funcionario;
+
+import br.com.restaurantordersystem.models.Endereco;
 
 public record FuncionarioAtualizarRecord (
         String cpf,

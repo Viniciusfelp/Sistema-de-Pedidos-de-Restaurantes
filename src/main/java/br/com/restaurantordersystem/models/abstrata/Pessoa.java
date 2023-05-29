@@ -1,5 +1,6 @@
-package br.com.restaurantordersystem.models;
+package br.com.restaurantordersystem.models.abstrata;
 
+import br.com.restaurantordersystem.models.Endereco;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

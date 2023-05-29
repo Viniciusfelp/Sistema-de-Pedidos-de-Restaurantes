@@ -1,4 +1,6 @@
-package br.com.restaurantordersystem.models;
+package br.com.restaurantordersystem.models.pedido;
+
+import br.com.restaurantordersystem.models.produto.Produto;
 
 import java.util.List;
 

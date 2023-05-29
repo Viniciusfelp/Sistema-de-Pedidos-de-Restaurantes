@@ -1,8 +1,7 @@
 package br.com.restaurantordersystem.controllers;
 
-import br.com.restaurantordersystem.models.DetalhamentoFuncionarioRecord;
-import br.com.restaurantordersystem.models.DetalhamentoPedidoRecord;
-import br.com.restaurantordersystem.models.FuncionarioRecord;
+import br.com.restaurantordersystem.models.funcionario.DetalhamentoFuncionarioRecord;
+import br.com.restaurantordersystem.models.funcionario.FuncionarioRecord;
 import br.com.restaurantordersystem.services.FuncionarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,7 @@
-package br.com.restaurantordersystem.models;
+package br.com.restaurantordersystem.models.funcionario;
 
+import br.com.restaurantordersystem.models.Endereco;
+import br.com.restaurantordersystem.models.abstrata.Pessoa;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;

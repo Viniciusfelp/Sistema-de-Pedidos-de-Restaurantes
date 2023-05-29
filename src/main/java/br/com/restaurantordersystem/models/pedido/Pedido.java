@@ -1,5 +1,8 @@
-package br.com.restaurantordersystem.models;
+package br.com.restaurantordersystem.models.pedido;
 
+import br.com.restaurantordersystem.models.cliente.Cliente;
+import br.com.restaurantordersystem.models.funcionario.Funcionario;
+import br.com.restaurantordersystem.models.produto.Produto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

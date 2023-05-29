@@ -1,6 +1,6 @@
 package br.com.restaurantordersystem.services;
 
-import br.com.restaurantordersystem.models.Cliente;
+import br.com.restaurantordersystem.models.cliente.Cliente;
 import br.com.restaurantordersystem.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

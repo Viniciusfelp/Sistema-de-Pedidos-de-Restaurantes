@@ -1,5 +1,8 @@
-package br.com.restaurantordersystem.models;
+package br.com.restaurantordersystem.models.pedido;
 
+import br.com.restaurantordersystem.models.cliente.Cliente;
+import br.com.restaurantordersystem.models.funcionario.Funcionario;
+import br.com.restaurantordersystem.models.produto.Produto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
