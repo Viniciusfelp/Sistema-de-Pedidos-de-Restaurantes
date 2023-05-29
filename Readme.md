@@ -4,7 +4,7 @@ O "Sistema de Pedidos de Restaurantes" é uma API REST desenvolvida em Spring Bo
 
 ## Recursos Principais
 
-- Gerenciamento de pedidos: permite aos usuários fazerem pedidos, acompanhar o status e fornecer feedback.
+- Gerenciamento de pedidos: permite aos funcionários gerar, acompanhar e organizar os pedidos.
 - Menu do restaurante: exibe informações sobre os pratos disponíveis, preços e descrições.
 - Pagamentos: integração com uma plataforma de pagamentos para processar transações seguras.
 - Autenticação e autorização: recursos para garantir a segurança das transações e proteger informações sensíveis.
