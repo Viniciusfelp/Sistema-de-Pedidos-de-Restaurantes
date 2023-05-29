@@ -48,6 +48,6 @@ public class FuncionarioController {
     public ResponseEntity deletar(@PathVariable String cpf) {
         if(funcionarioService.existe(cpf)) return ResponseEntity.notFound().build();
         funcionarioService.deletar(cpf);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 }

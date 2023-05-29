@@ -41,7 +41,7 @@ public class ClienteController {
     public ResponseEntity deletarUsuario(@PathVariable String cpf) {
         if(clienteService.existe(cpf)) return ResponseEntity.notFound().build();
         clienteService.deletar(cpf);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/{cpf}")

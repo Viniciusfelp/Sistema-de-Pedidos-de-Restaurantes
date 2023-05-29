@@ -47,7 +47,7 @@ public class ProdutoController {
     public ResponseEntity deletar(@PathVariable Long codigo) {
         if(produtoService.existe(codigo)) return ResponseEntity.notFound().build();
         produtoService.deletar(codigo);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 
 }
