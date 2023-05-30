@@ -31,6 +31,19 @@ public class TokenService {
     }
 }
 
+    public String getSubject(String token) {
+        try {
+            var algorithm = Algorithm.HMAC256(secret);
+            return JWT.require(algorithm)
+                    .withIssuer("API Restaurant Order System")
+                    .build()
+                    .verify(token)
+                    .getSubject();
+        }catch (Exception exception){
+            throw new RuntimeException("Erro ao decodificar token", exception);
+        }
+    }
+
     private Instant dataExpiracao() {
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
     }
