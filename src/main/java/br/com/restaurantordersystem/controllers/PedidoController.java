@@ -5,6 +5,8 @@ import br.com.restaurantordersystem.models.pedido.PedidoRecord;
 import br.com.restaurantordersystem.services.PedidoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -24,7 +26,7 @@ public class PedidoController {
     }
 
     @GetMapping
-    public ResponseEntity findAll(){
+    public ResponseEntity findAll(@PageableDefault(size = 10, sort = {"cliente"}) Pageable pageable){
         return ResponseEntity.ok(pedidoService.findAll());
     }
 

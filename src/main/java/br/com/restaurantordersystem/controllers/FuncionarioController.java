@@ -5,9 +5,12 @@ import br.com.restaurantordersystem.models.funcionario.FuncionarioRecord;
 import br.com.restaurantordersystem.services.FuncionarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+
 
 @RestController
 @RequestMapping("/funcionario")
@@ -32,8 +35,8 @@ public class FuncionarioController {
     }
 
     @GetMapping
-    public ResponseEntity findAll(){
-        return ResponseEntity.ok(funcionarioService.findAll());
+    public ResponseEntity findAll(@PageableDefault(size = 10, sort = {"nome"}) Pageable pageable){
+        return ResponseEntity.ok(funcionarioService.findAll(pageable));
     }
 
     @GetMapping("/{cpf}")

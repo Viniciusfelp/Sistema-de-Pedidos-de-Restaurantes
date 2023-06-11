@@ -6,6 +6,11 @@ import br.com.restaurantordersystem.models.produto.Produto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
 public record PedidoRecord(
@@ -18,8 +23,9 @@ public record PedidoRecord(
         @NotNull(message = "A lista de produtos não pode ser nula")
         @Size(min = 1, message = "A lista de produtos deve conter pelo menos um item")
         List<Produto> produtos
+
 ) {
     public Pedido toPedido() {
-        return new Pedido(codigo(), usuario(), funcionario(), produtos());
+        return new Pedido(codigo(), usuario(), funcionario(), produtos(), LocalDateTime.now(ZoneId.of("America/Sao_Paulo")));
     }
 }

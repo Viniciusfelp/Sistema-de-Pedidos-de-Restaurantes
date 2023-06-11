@@ -4,6 +4,7 @@ import br.com.restaurantordersystem.models.Endereco;
 import br.com.restaurantordersystem.models.abstrata.Pessoa;
 import jakarta.persistence.Entity;
 
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "clientes")
 public class Cliente extends Pessoa {
 
     public Cliente(String cpf, String nome, String email, Endereco endereco, String telefone) {

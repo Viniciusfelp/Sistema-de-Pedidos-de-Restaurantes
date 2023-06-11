@@ -1,10 +1,7 @@
 package br.com.restaurantordersystem.models.produto;
 
 import br.com.restaurantordersystem.models.Categoria;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "produtos")
 public class Produto {
     @Id
     private String codigo;

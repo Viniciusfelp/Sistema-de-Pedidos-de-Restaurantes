@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -16,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "pedidos")
 public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,4 +33,6 @@ public class Pedido {
             joinColumns = @JoinColumn(name = "pedido_codigo"),
             inverseJoinColumns = @JoinColumn(name = "produto_codigo"))
     private List<Produto> produtos;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime data;
 }

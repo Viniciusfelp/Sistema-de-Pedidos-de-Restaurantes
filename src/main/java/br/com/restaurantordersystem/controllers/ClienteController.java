@@ -1,16 +1,20 @@
 package br.com.restaurantordersystem.controllers;
 
+import br.com.restaurantordersystem.models.cliente.Cliente;
 import br.com.restaurantordersystem.models.cliente.ClienteRecord;
 import br.com.restaurantordersystem.models.cliente.DetalhamentoClienteRecord;
 import br.com.restaurantordersystem.services.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/usuarios")
 public class ClienteController {
 
     @Autowired
@@ -24,8 +28,9 @@ public class ClienteController {
     }
 
     @GetMapping
-    public ResponseEntity findAll(){
-        return ResponseEntity.ok(clienteService.findAll());
+    public ResponseEntity<Page<Cliente>> findAll(@PageableDefault(size = 10, sort = {"nome"})Pageable pageable){
+        var clientes = clienteService.findAll(pageable);
+        return ResponseEntity.ok(clientes);
     }
 
     @PutMapping("/{cpf}")

@@ -3,6 +3,8 @@ package br.com.restaurantordersystem.services;
 import br.com.restaurantordersystem.models.funcionario.Funcionario;
 import br.com.restaurantordersystem.repositories.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,8 +33,8 @@ public class FuncionarioService {
         return !funcionarioRepository.existsById(cpf);
     }
 
-    public List<Funcionario> findAll() {
-        return funcionarioRepository.findAll();
+    public Page<Funcionario> findAll(Pageable pageable) {
+        return funcionarioRepository.findAll(pageable);
     }
 
     public Optional<Funcionario> bucarPorId(String cpf) {

@@ -3,9 +3,10 @@ package br.com.restaurantordersystem.services;
 import br.com.restaurantordersystem.models.cliente.Cliente;
 import br.com.restaurantordersystem.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,8 +24,8 @@ public class ClienteService {
         return usuario.orElse(null);
     }
 
-    public List<Cliente> findAll(){
-        return clienteRepository.findAll();
+    public Page<Cliente> findAll(Pageable pageable){
+        return clienteRepository.findAll(pageable);
     }
 
     public Cliente atualizar (Cliente usuario) {
